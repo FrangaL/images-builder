@@ -3,14 +3,13 @@ FROM debian:buster-slim
 ENV container docker
 ENV LC_ALL C
 ENV DEBIAN_FRONTEND noninteractive
+ENV APT_OPTS="--no-install-recommends -o APT::Install-Suggests=0 -o Acquire::Languages=none"
 
 RUN echo "deb http://deb.debian.org/debian buster-backports main" >/etc/apt/sources.list.d/backports.list \
     && echo 'APT::Default-Release "stable";' > /etc/apt/apt.conf \
     && apt-get update \
-    && apt-get install -y --no-install-recommends -o APT::Install-Suggests=0 -o Acquire::Languages=none \
-    ca-certificates wget procps dbus kmod udev git nano libterm-readline-gnu-perl \
-    && apt-get install -y --no-install-recommends -o APT::Install-Suggests=0 -o Acquire::Languages=none \
-    -t buster-backports systemd systemd-sysv systemd-container \
+    && apt-get install -y $APT_OPTS ca-certificates wget procps dbus kmod udev git nano libterm-readline-gnu-perl \
+    && apt-get install -y $APT_OPTS -t buster-backports systemd systemd-sysv systemd-container \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/*.bin \
     /var/lib/dpkg/*-old /var/cache/debconf/*-old
