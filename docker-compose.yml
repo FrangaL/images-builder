@@ -1,8 +1,8 @@
-version: '3.8'
+version: '3'
 services:
   rpi-images:
     build: .
-    image: images-builder:1.0.1
+    image: images-builder:latest
     cap_add:
     - SYS_ADMIN
     container_name: rpi-images
