@@ -37,8 +37,8 @@ CMD ["/lib/systemd/systemd"]
 # Build-time metadata as defined at http://label-schema.org
 ARG VCS_REF
 
-LABEL org.label-schema.build-date="$BUILD_DATE" \
-  org.label-schema.version="$RPI_IMG_VER_BUILD" \
+LABEL org.label-schema.build-date=$BUILD_DATE \
+  org.label-schema.version=$RPI_IMG_VER_BUILD \
   org.label-schema.docker.schema-version="1.0" \
   org.label-schema.name="rpi-images-builder" \
   org.label-schema.description="Tools to create images Raspberry Pi OS/Debian arm64/armhf for Raspberry Pi" \
