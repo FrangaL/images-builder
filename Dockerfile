@@ -1,7 +1,5 @@
 FROM debian:buster-slim
 
-LABEL maintainer="FrangaL <frangal@gmail.com>"
-
 ENV container docker
 ENV LC_ALL C
 ENV DEBIAN_FRONTEND noninteractive
@@ -37,11 +35,14 @@ CMD ["/lib/systemd/systemd"]
 # Build-time metadata as defined at http://label-schema.org
 ARG BUILD_DATE
 ARG VCS_REF
+ARG VCS_URL
+ARG RPI_IMG_VER_BUILD
 
-LABEL org.label-schema.build-date=$BUILD_DATE \
+LABEL maintainer="FrangaL <frangal@gmail.com>" \
+  org.label-schema.build-date=$BUILD_DATE \
   org.label-schema.version=$RPI_IMG_VER_BUILD \
   org.label-schema.docker.schema-version="1.0" \
   org.label-schema.name="rpi-images-builder" \
   org.label-schema.description="Tools to create images Raspberry Pi OS/Debian arm64/armhf for Raspberry Pi" \
   org.label-schema.vcs-ref=$VCS_REF \
-  org.label-schema.vcs-url="https://github.com/FrangaL/images-builder"
+  org.label-schema.vcs-url=$VCS_URL
