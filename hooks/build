@@ -6,9 +6,11 @@ echo "Build hook running..."
 
 BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 VCS_REF=$(git rev-parse --short HEAD)
+VCS_URL=$(git config --get remote.origin.url)
 
 echo "BUILD_DATE: ${BUILD_DATE}"
 echo "VCS_REF: ${VCS_REF}"
+echo "VCS_URL: ${VCS_URL}"
 
 printenv
 
