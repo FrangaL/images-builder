@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:
   rpi-images:
     build: .
@@ -6,11 +6,7 @@ services:
     cap_add:
     - SYS_ADMIN
     container_name: rpi-images
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: on-failure
-        max_attempts: 3
+    restart: always
     hostname: rpi-images
     network_mode: bridge
     privileged: true
