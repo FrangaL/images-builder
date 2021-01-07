@@ -1,3 +1,4 @@
+![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/frangal/rpi-images-builder)
 # Docker container to build images
 
 
