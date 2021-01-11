@@ -2,7 +2,7 @@ version: '3.7'
 services:
   rpi-images:
     build: .
-    image: images-builder:latest
+    image: frangal/rpi-images-builder:latest
     cap_add:
     - SYS_ADMIN
     container_name: rpi-images
