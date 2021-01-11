@@ -5,15 +5,27 @@
 ### Download container image
 
 ```bash
-docker push frangal/rpi-images-builder:latest
-docker-compose --compatibility up -d
-
+docker pull frangal/rpi-images-builder:latest
 ```
 
 ### Build container image
 
 ```bash
+git clone https://github.com/FrangaL/images-builder.git
+
+cd images-builder
+
 docker-compose --compatibility up -d --build
+```
+
+### Run container
+
+```bash
+git clone https://github.com/FrangaL/images-builder.git
+
+cd images-builder
+
+docker-compose --compatibility up -d
 ```
 
 ### Create Raspberry PI image
@@ -23,4 +35,7 @@ docker exec -it rpi-images git pull
 
 docker exec -it rpi-images bash -c "COMPRESS=xz ./rpi-img-builder.sh"
 
+docker exec -it rpi-images sh -c "ls *.img.xz"
+
 docker cp rpi-images:/images/debian-buster-lite-arm64.img.xz .
+```
