@@ -3,6 +3,8 @@ services:
   rpi-images:
     build: .
     image: frangal/rpi-images-builder:latest
+    stdin_open: true
+    tty: true
     cap_add:
     - SYS_ADMIN
     container_name: rpi-images
