@@ -35,7 +35,7 @@ RUN git clone --depth 1 https://github.com/FrangaL/rpi-img-builder.git /images
 
 WORKDIR /images
 
-VOLUME [ "/sys/fs/cgroup" ]
+#VOLUME [ "/sys/fs/cgroup" ]
 
 CMD ["/lib/systemd/systemd"]
 
