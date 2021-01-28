@@ -21,11 +21,17 @@ docker-compose --compatibility up -d --build
 ### Run container
 
 ```bash
+# docker-composer
 git clone https://github.com/FrangaL/images-builder.git
 
 cd images-builder
 
 docker-compose --compatibility up -d
+
+# docker run
+docker run --privileged -it -v /dev:/dev -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
+  --name rpi-images -h rpi-images --cap-add SYS_ADMIN \
+  --tmpfs /tmp --tmpfs /run --tmpfs /run/lock frangal/rpi-images-builder:latest 
 ```
 
 ### Create Raspberry PI image
